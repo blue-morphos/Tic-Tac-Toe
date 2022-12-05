@@ -14,7 +14,12 @@ body {
 }
 
 .gamespace {
-    height: 10em;
-    width: 10em;
+    height: 10vh;
+    width: 10vw;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
 }
