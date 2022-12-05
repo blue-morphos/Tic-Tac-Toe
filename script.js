@@ -8,7 +8,7 @@
     //gameboard array 
 //need one of this, so use a module
 const gameboardObject = (() => {
-    let gameboardArray = ["o", "x", "o", "x", "", "", "o", "x", "o"];
+    let gameboardArray = ["", "", "", "", "", "", "", "", ""];
     return {gameboardArray}
 })();
 
@@ -32,6 +32,7 @@ const displayController = (() => {
     for (i = 0; i < 9; i++){
         console.log(gameboardObject.gameboardArray[i]);
         gamespaces[i].innerHTML = gameboardObject.gameboardArray[i];
+        gamespaces[i].addEventListener('click', addToArray)
     }
 })();
 
@@ -47,7 +48,12 @@ const displayController = (() => {
 //objects.. but take care to put them in “logical” places.
 // Spending a little time brainstorming here can make your 
 //life much easier later!
-
+function addToArray(e){
+    gameboardObject.gameboardArray.shift();
+    gameboardObject.gameboardArray.push("x");
+   console.log(gameboardObject.gameboardArray);
+    e.target.innerHTML= "X";
+}
 //Build the logic that checks for when the game is over! Should check for 3-in-a-row and a tie.
 
 //Clean up the interface to allow players to put in their names, 
