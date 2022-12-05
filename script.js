@@ -8,8 +8,31 @@
     //gameboard array 
 //need one of this, so use a module
 const gameboardObject = (() => {
+    let turn = 1;
     let gameboardArray = ["", "", "", "", "", "", "", "", ""];
-    return {gameboardArray}
+    const displayController = (() => {
+        let gamespaces = document.querySelectorAll(".gamespace");
+        for (i = 0; i < 9; i++){
+            console.log(gameboardArray[i]);
+            gamespaces[i].innerHTML = gameboardArray[i];
+            gamespaces[i].addEventListener('click', addToArray);
+            function addToArray(e){
+                if (turn %2 != 0){
+                    marker = "x";
+                };
+                if (turn %2 == 0){
+                    marker = "o"
+                }
+                gameboardObject.gameboardArray.shift();
+                gameboardObject.gameboardArray.push(marker);
+               console.log(gameboardObject.gameboardArray);
+                e.target.innerHTML= marker;
+                turn++;
+                console.log(turn);
+            }
+        }
+    })();
+    return {gameboardArray, displayController}
 })();
 
 
@@ -22,20 +45,9 @@ function Player(name) {
 }
 
 //you’re probably going to want an object to control the flow of the game itself.
-//
+const game = (() => {
 
-
-//function that will render the contents 
-//of the gameboard array to the webpage
-const displayController = (() => {
-    let gamespaces = document.querySelectorAll(".gamespace");
-    for (i = 0; i < 9; i++){
-        console.log(gameboardObject.gameboardArray[i]);
-        gamespaces[i].innerHTML = gameboardObject.gameboardArray[i];
-        gamespaces[i].addEventListener('click', addToArray)
-    }
 })();
-
 
 //Build the functions that allow players to 
 //add marks to a specific spot on the board, and then 
@@ -48,12 +60,7 @@ const displayController = (() => {
 //objects.. but take care to put them in “logical” places.
 // Spending a little time brainstorming here can make your 
 //life much easier later!
-function addToArray(e){
-    gameboardObject.gameboardArray.shift();
-    gameboardObject.gameboardArray.push("x");
-   console.log(gameboardObject.gameboardArray);
-    e.target.innerHTML= "X";
-}
+
 //Build the logic that checks for when the game is over! Should check for 3-in-a-row and a tie.
 
 //Clean up the interface to allow players to put in their names, 
