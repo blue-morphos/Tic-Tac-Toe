@@ -76,6 +76,9 @@ const displayController = (() => {
                 gameboardObject.gameboardArray[6]){
                 document.getElementById('result').innerHTML = "game over. Winner: " + marker;
             }
+            if (turn === 10){
+                document.getElementById('result').innerHTML = "game over. It's a draw!";
+            }
         }
     }
 })();
