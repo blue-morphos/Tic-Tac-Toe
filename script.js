@@ -6,10 +6,12 @@ const gameboardObject = (() => {
         gamespaces[i].addEventListener('click', addToArray);
         function addToArray(e){
             if (turn %2 != 0){
-                marker = "x";
+                marker = "X";
+                e.target.style.color = "red";
             };
             if (turn %2 == 0){
-                marker = "o"
+                marker = "O";
+                e.target.style.color = "blue";
             }
             e.target.innerHTML= marker;
             gameboardArray[i]=marker;
