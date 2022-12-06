@@ -1,6 +1,7 @@
+let turn = 1
 const gameboardObject = (() => {
     let gameboardArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    let turn = 1;
+    
     let gamespaces = document.querySelectorAll(".gamespace");
     for (let i = 0; i < 9; i++){
         gamespaces[i].addEventListener('click', addToArray);
@@ -76,12 +77,16 @@ const gameboardObject = (() => {
             if (turn === 10){
                 document.getElementById('result').innerHTML = "game over. It's a draw!";
             }
-        }
+        } 
     }
-
     return {gameboardArray};
 })();
 
-const displayController = (() => {
-
-})();
+function reset(){
+    let gamespaces = document.querySelectorAll(".gamespace");
+    for (let i = 0; i < 9; i++){
+        gamespaces[i].innerHTML="";
+        gameboardObject.gameboardArray[i]=[i];
+    }
+    return turn=1;
+}
