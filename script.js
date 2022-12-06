@@ -3,7 +3,7 @@ const gameboardObject = (() => {
     let gameboardArray = ["", "", "", "", "", "", "", "", ""];
     const displayController = (() => {
         let gamespaces = document.querySelectorAll(".gamespace");
-        for (i = 0; i < 9; i++){
+        for (let i = 0; i < 9; i++){
             gamespaces[i].addEventListener('click', addToArray);
             function addToArray(e){
                 if (turn %2 != 0){
@@ -13,7 +13,7 @@ const gameboardObject = (() => {
                     marker = "o"
                 }
                 e.target.innerHTML= marker;
-               // gameboardArray.push(e.target.innerHTML);
+                gameboardArray[i]=marker;
                 turn++;
             }
             for (j = 0; j < gameboardArray.length; j++){
@@ -55,16 +55,3 @@ function Player(name) {
 // element that congratulates the winning player!
 
 
-const spaces = document.querySelectorAll('.gamespace');
-let $location = [];
-for (let i = 0; i < spaces.length; i++){
-    const space = spaces[i];
-    space.addEventListener('click', pushMarkerToGameboardArray);
-    $location=i;
-    function pushMarkerToGameboardArray(){
-        gameboardObject.gameboardArray[i]=marker;
-        console.log(gameboardObject.gameboardArray);
-        console.log([i]);
-       
-    }
-}
