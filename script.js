@@ -6,6 +6,7 @@ const gameboardObject = (() => {
     for (let i = 0; i < 9; i++){
         gamespaces[i].addEventListener('click', addToArray);
         function addToArray(e){
+            if (e.target.innerHTML==""){
             if (turn %2 != 0){
                 marker = "X";
                 e.target.style.color = "red";
@@ -78,6 +79,7 @@ const gameboardObject = (() => {
                 document.getElementById('result').innerHTML = "game over. It's a draw!";
             }
         } 
+    }
     }
     return {gameboardArray};
 })();
