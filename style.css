@@ -1,9 +1,10 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
+    background-color: #e4e4e4;
 }
 
 #gameboard {
@@ -17,7 +18,7 @@ body {
 .gamespace {
     height: 10vh;
     width: 10vw;
-    background-color: white;
+    background-color: #e4e4e4;
     display: flex;
     justify-content: center;
     align-items: center;
