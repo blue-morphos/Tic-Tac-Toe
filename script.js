@@ -1,29 +1,34 @@
 const gameboardObject = (() => {
-    let turn = 1;
     let gameboardArray = ["", "", "", "", "", "", "", "", ""];
-    const displayController = (() => {
-        let gamespaces = document.querySelectorAll(".gamespace");
-        for (let i = 0; i < 9; i++){
-            gamespaces[i].addEventListener('click', addToArray);
-            function addToArray(e){
-                if (turn %2 != 0){
-                    marker = "x";
-                };
-                if (turn %2 == 0){
-                    marker = "o"
-                }
-                e.target.innerHTML= marker;
-                gameboardArray[i]=marker;
-                turn++;
-            }
-            for (j = 0; j < gameboardArray.length; j++){
-                gamespaces[j].innerHTML = gameboardArray[j];
-            }
-        }
-    })();
-    return {gameboardArray, displayController}
+
+    return {gameboardArray};
 })();
 
+const displayController = (() => {
+    let turn = 1;
+    let gamespaces = document.querySelectorAll(".gamespace");
+    for (let i = 0; i < 9; i++){
+        gamespaces[i].addEventListener('click', addToArray);
+        function addToArray(e){
+            if (turn %2 != 0){
+                marker = "x";
+            };
+            if (turn %2 == 0){
+                marker = "o"
+            }
+            e.target.innerHTML= marker;
+            gameboardObject.gameboardArray[i]=marker;
+            turn++;
+            if (gameboardObject.gameboardArray[0] == gameboardObject.gameboardArray[1] && gameboardObject.gameboardArray[1] == gameboardObject.gameboardArray[2]){
+                document.getElementById('result').innerHTML = "nice";
+            }
+        }
+        //for (j = 0; j < gameboardArray.length; j++){
+           // gamespaces[j].innerHTML = gameboardArray[j];
+           
+       // }
+    }
+})();
 
 //Your players are also going to be stored in objects
 //player object
