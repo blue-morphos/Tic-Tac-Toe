@@ -1,5 +1,5 @@
 const gameboardObject = (() => {
-    let gameboardArray = ["", "", "", "", "", "", "", "", ""];
+    let gameboardArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
     return {gameboardArray};
 })();
@@ -19,14 +19,64 @@ const displayController = (() => {
             e.target.innerHTML= marker;
             gameboardObject.gameboardArray[i]=marker;
             turn++;
-            if (gameboardObject.gameboardArray[0] == gameboardObject.gameboardArray[1] && gameboardObject.gameboardArray[1] == gameboardObject.gameboardArray[2]){
-                document.getElementById('result').innerHTML = "nice";
+            console.log(turn)
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[0] == 
+                gameboardObject.gameboardArray[1] && 
+                gameboardObject.gameboardArray[1] == 
+                gameboardObject.gameboardArray[2]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[3] == 
+                gameboardObject.gameboardArray[4] && 
+                gameboardObject.gameboardArray[4] == 
+                gameboardObject.gameboardArray[5]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[6] == 
+                gameboardObject.gameboardArray[7] && 
+                gameboardObject.gameboardArray[7] == 
+                gameboardObject.gameboardArray[8]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[0] == 
+                gameboardObject.gameboardArray[3] && 
+                gameboardObject.gameboardArray[3] == 
+                gameboardObject.gameboardArray[6]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[1] == 
+                gameboardObject.gameboardArray[4] && 
+                gameboardObject.gameboardArray[4] == 
+                gameboardObject.gameboardArray[7]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[2] == 
+                gameboardObject.gameboardArray[5] && 
+                gameboardObject.gameboardArray[5] == 
+                gameboardObject.gameboardArray[8]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[0] == 
+                gameboardObject.gameboardArray[4] && 
+                gameboardObject.gameboardArray[4] == 
+                gameboardObject.gameboardArray[8]){
+                document.getElementById('result').innerHTML = "game over";
+            }
+            if (turn > 4 &&
+                gameboardObject.gameboardArray[2] == 
+                gameboardObject.gameboardArray[4] && 
+                gameboardObject.gameboardArray[4] == 
+                gameboardObject.gameboardArray[6]){
+                document.getElementById('result').innerHTML = "game over";
             }
         }
-        //for (j = 0; j < gameboardArray.length; j++){
-           // gamespaces[j].innerHTML = gameboardArray[j];
-           
-       // }
     }
 })();
 
